@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Form({ handleAddItems }) {
-  const [description, setDescription] = useState("Computer");
+  const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
   const handleSubmit = (e) => {
@@ -18,11 +18,11 @@ export default function Form({ handleAddItems }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-4 rounded shadow-md mb-6 flex flex-col sm:flex-row gap-3 items-center justify-center"
+      className="bg-white p-4 rounded shadow border border-gray-200 mb-6 flex flex-col sm:flex-row gap-3 items-center justify-center"
     >
       <p className="font-semibold">What do you need for your 😍 trip?</p>
       <select
-        className="border rounded p-2"
+        className="border border-gray-300 rounded p-2 focus:outline-none focus:border-gray-400"
         value={quantity}
         onChange={(e) => setQuantity(Number(e.target.value))}
       >
@@ -33,13 +33,13 @@ export default function Form({ handleAddItems }) {
         ))}
       </select>
       <input
-        className="border rounded p-2 w-48"
+        className="border border-gray-300 rounded p-2 focus:outline-none focus:border-gray-400  w-48"
         type="text"
         placeholder="Item..."
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+      <button className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
         Add
       </button>
     </form>
